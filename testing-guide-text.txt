@@ -1,0 +1,464 @@
+Notary Agent App Testing Guide
+Tester guide generated from Design Option 5 - Premium Card Suite.
+Follow each screen, perform the action, confirm the expected result, and record pass/fail notes.
+Total screens covered: 45
+1. Authentication and Agent Access (10 screens)
+2. Dashboard, Search, Notifications, and Settings (5 screens)
+3. Wireless Request Workflow (7 screens)
+4. Customer Registration and Profile Edits (7 screens)
+5. Journal, Signing, and Document Capture (6 screens)
+6. Video, Billing, Mail, Chat, and Reports (10 screens)
+
+1. Authentication and Agent Access
+01 Splash Screen
+Splash Screen
+Tester action:
+Open the app.
+Expected result:
+Splash screen loads and shows the Notary Agent brand.
+Verify:
+Brand visible; app continues to role selection.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+02 Choose Role
+Choose Role
+Tester action:
+Tap Agent.
+Expected result:
+Agent login screen opens.
+Verify:
+Agent and Customer choices are clear and tappable.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+1. Authentication and Agent Access
+03 Agent Login
+Agent Login
+Tester action:
+Enter valid username and password, then tap Sign In.
+Expected result:
+Agent reaches Dashboard Home or activation if inactive.
+Verify:
+Invalid login shows a clear error.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+04 Forgot Password
+Forgot Password
+Tester action:
+Submit registered email.
+Expected result:
+Reset instructions are sent or confirmation is displayed.
+Verify:
+Email validation and confirmation.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+1. Authentication and Agent Access
+05 Create Passcode
+Create Passcode
+Tester action:
+Create a four digit passcode.
+Expected result:
+Passcode is saved for this device.
+Verify:
+Length, confirmation, mismatch errors.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+06 Fingerprint Setup
+Fingerprint Setup
+Tester action:
+Choose fingerprint setup.
+Expected result:
+Device biometric prompt or fallback appears.
+Verify:
+Unsupported devices can use passcode.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+1. Authentication and Agent Access
+07 Fingerprint Verification
+Fingerprint Verification
+Tester action:
+Verify with fingerprint.
+Expected result:
+Agent is authenticated and continues.
+Verify:
+Failure/cancel returns safely.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+08 Face Recognition Setup
+Face Recognition Setup
+Tester action:
+Choose face recognition setup.
+Expected result:
+Face setup prompt appears.
+Verify:
+Permission handling and fallback passcode.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+1. Authentication and Agent Access
+09 Face Recognition Verification
+Face Recognition Verification
+Tester action:
+Verify with face recognition.
+Expected result:
+Agent is authenticated and continues.
+Verify:
+Failure/cancel returns safely.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+10 Account Activation
+Account Activation
+Tester action:
+Enter activation code and tap Activate.
+Expected result:
+Account becomes active and dashboard opens.
+Verify:
+Invalid/expired code and resend behavior.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+2. Dashboard, Search, Notifications, and Settings
+11 Dashboard Home
+Dashboard Home
+Tester action:
+Review counters and tap each card.
+Expected result:
+Each card opens its workflow list.
+Verify:
+Counts match backend and tap areas work.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+12 Notifications
+Notifications
+Tester action:
+Open notifications.
+Expected result:
+Recent activity list appears.
+Verify:
+Unread/read state, timestamps, deep links.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+2. Dashboard, Search, Notifications, and Settings
+13 Search Results
+Search Results
+Tester action:
+Search customer name, email, or request ID.
+Expected result:
+Matching records appear.
+Verify:
+Empty state and partial matches.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+14 Settings
+Settings
+Tester action:
+Open settings.
+Expected result:
+Account/profile/settings options are visible.
+Verify:
+All rows navigate correctly.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+2. Dashboard, Search, Notifications, and Settings
+15 Authentication Settings
+Authentication Settings
+Tester action:
+Change biometric preference.
+Expected result:
+Preference is saved.
+Verify:
+Only available methods selectable.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+3. Wireless Request Workflow
+16 Wireless Request List
+Wireless Request List
+Tester action:
+Open Wireless Requests.
+Expected result:
+In-process request list appears.
+Verify:
+Tabs, counts, and loading states.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+17 Request Detail - New
+Request Detail - New
+Tester action:
+Open a new request.
+Expected result:
+Customer detail and required sections appear.
+Verify:
+Call/email/chat and accept/decline controls.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+3. Wireless Request Workflow
+18 Request Detail - Review
+Request Detail - Review
+Tester action:
+Accept one document and decline another.
+Expected result:
+Statuses update.
+Verify:
+Progress persists after reopening.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+19 Reason for Rejection
+Reason for Rejection
+Tester action:
+Decline a document and enter reason.
+Expected result:
+Reason is submitted to customer.
+Verify:
+Reason required before submit.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+3. Wireless Request Workflow
+20 Request Another Document
+Request Another Document
+Tester action:
+Enter missing document details.
+Expected result:
+Customer receives document request.
+Verify:
+Activity/history is updated.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+21 Pending Customers
+Pending Customers
+Tester action:
+Open pending customers.
+Expected result:
+Pending verification customers appear.
+Verify:
+Review actions and empty state.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+3. Wireless Request Workflow
+22 Customer Details
+Customer Details
+Tester action:
+Open customer details.
+Expected result:
+Profile, docs, signature, and history show.
+Verify:
+Create Journal opens journal flow.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+4. Customer Registration and Profile Edits
+23 New Customer Registration
+New Customer Registration
+Tester action:
+Start new customer.
+Expected result:
+Registration screen opens.
+Verify:
+Manual fields and scan buttons work.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+24 Choose ID Type
+Choose ID Type
+Tester action:
+Choose Driving License or Passport.
+Expected result:
+Correct scan screen opens.
+Verify:
+Back/cancel returns safely.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+4. Customer Registration and Profile Edits
+25 Scan Driving License
+Scan Driving License
+Tester action:
+Scan back side of license.
+Expected result:
+License data is captured or retry shown.
+Verify:
+Camera permissions and retry flow.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+26 Scan Passport
+Scan Passport
+Tester action:
+Scan passport ID page.
+Expected result:
+Passport data is captured or retry shown.
+Verify:
+Matching/fraud handling.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+4. Customer Registration and Profile Edits
+27 Edit Email
+Edit Email
+Tester action:
+Update customer email.
+Expected result:
+Email change is saved or verification starts.
+Verify:
+Invalid/duplicate email errors.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+28 Edit Address
+Edit Address
+Tester action:
+Update customer address.
+Expected result:
+Address change is saved.
+Verify:
+Required fields and formatting.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+4. Customer Registration and Profile Edits
+29 Edit Signature
+Edit Signature
+Tester action:
+Capture/edit customer signature.
+Expected result:
+Signature is saved and shown.
+Verify:
+Clear/save/cancel behavior.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+5. Journal, Signing, and Document Capture
+30 New Journal
+New Journal
+Tester action:
+Create journal for verified customer.
+Expected result:
+New journal fields appear.
+Verify:
+Act, location, witness, notes, submit.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+31 Notary Act Type
+Notary Act Type
+Tester action:
+Select notary act type.
+Expected result:
+Selected act returns to New Journal.
+Verify:
+Long list scrolling/search if available.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+5. Journal, Signing, and Document Capture
+32 Signature Capture
+Signature Capture
+Tester action:
+Ask customer to sign.
+Expected result:
+Signature image is captured.
+Verify:
+Clear, done, empty signature validation.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+33 Scan Documents
+Scan Documents
+Tester action:
+Scan required document.
+Expected result:
+Document image can be accepted/rejected.
+Verify:
+Reject/rescan and accept path.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+5. Journal, Signing, and Document Capture
+34 Scan Notarized Document
+Scan Notarized Document
+Tester action:
+Scan final notarized document.
+Expected result:
+Final scan preview is captured.
+Verify:
+Multiple pages and permissions.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+35 Notarized Document Confirmation
+Notarized Document Confirmation
+Tester action:
+Confirm scanning is done.
+Expected result:
+Document URL is sent to customer.
+Verify:
+No returns to scan; Yes completes.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+6. Video, Billing, Mail, Chat, and Reports
+36 Video Verification
+Video Verification
+Tester action:
+Start video call.
+Expected result:
+Video call starts or waiting state appears.
+Verify:
+Permissions, reminder, call failure.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+37 Fee Info / Invoice
+Fee Info / Invoice
+Tester action:
+Enter fees and generate invoice.
+Expected result:
+Invoice is created and customer notified.
+Verify:
+Total calculation and required fee validation.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+6. Video, Billing, Mail, Chat, and Reports
+38 View Invoice
+View Invoice
+Tester action:
+Open invoice.
+Expected result:
+Invoice details are visible.
+Verify:
+Line items, total, customer info.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+39 Payment Reminder
+Payment Reminder
+Tester action:
+Send payment reminder.
+Expected result:
+Reminder is sent.
+Verify:
+Duplicate reminder messaging.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+6. Video, Billing, Mail, Chat, and Reports
+40 Payment Done Alert
+Payment Done Alert
+Tester action:
+Acknowledge payment done alert.
+Expected result:
+Payment status updates.
+Verify:
+Acknowledgement/customer correctness.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+41 Postal Mail List
+Postal Mail List
+Tester action:
+Open postal mail queue.
+Expected result:
+Customers needing shipment number appear.
+Verify:
+Ready/done status and filters.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+6. Video, Billing, Mail, Chat, and Reports
+42 Add Shipment Number
+Add Shipment Number
+Tester action:
+Enter tracking number.
+Expected result:
+Shipment number is saved.
+Verify:
+Required field and invalid tracking.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+43 Chats
+Chats
+Tester action:
+Open chat list.
+Expected result:
+Customer conversations appear.
+Verify:
+Unread count, search, open conversation.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
+6. Video, Billing, Mail, Chat, and Reports
+44 Chat Detail
+Chat Detail
+Tester action:
+Send and receive message.
+Expected result:
+Conversation updates.
+Verify:
+Attachment/comment support if implemented.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+45 Reports
+Reports
+Tester action:
+Filter date range and export.
+Expected result:
+Filtered report appears/export starts.
+Verify:
+Date picker, empty state, export success.
+Pass: ________   Fail: ________   Bug ID / Notes: ________________________________
+
