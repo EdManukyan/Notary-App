@@ -1,21 +1,16 @@
 import { create } from 'zustand';
-
-interface User {
-  id: string;
-  email: string;
-  role: 'agent' | 'customer';
-}
+import { Session } from '@supabase/supabase-js';
 
 interface AuthState {
-  user: User | null;
+  session: Session | null;
   isAuthenticated: boolean;
-  setUser: (user: User | null) => void;
+  setSession: (session: Session | null) => void;
   logout: () => void;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
-  user: null,
+  session: null,
   isAuthenticated: false,
-  setUser: (user) => set({ user, isAuthenticated: !!user }),
-  logout: () => set({ user: null, isAuthenticated: false }),
+  setSession: (session) => set({ session, isAuthenticated: !!session }),
+  logout: () => set({ session: null, isAuthenticated: false }),
 }));
