@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import Nav from '../../components/Nav';
-import { useAuthStore } from '../../store/useAuthStore';
+import { supabase } from '../../services/supabase';
 
 // Define the Zod schema for form validation
 const loginSchema = z.object({
@@ -15,7 +16,8 @@ type LoginFormValues = z.infer<typeof loginSchema>;
 
 const Login = () => {
   const navigate = useNavigate();
-  const setUser = useAuthStore((state) => state.setUser);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const {
     register,
@@ -24,18 +26,41 @@ const Login = () => {
   } = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: 'agent@example.com',
+      email: '',
       password: '',
     },
   });
 
-  const onSubmit = (data: LoginFormValues) => {
-    // In a real app, you would call supabase.auth.signInWithPassword here
-    console.log('Login credentials:', data);
+  const onSignIn = async (data: LoginFormValues) => {
+    setLoading(true);
+    setErrorMsg(null);
+    const { error } = await supabase.auth.signInWithPassword({
+      email: data.email,
+      password: data.password,
+    });
+    setLoading(false);
     
-    // Simulate setting the global user state via Zustand
-    setUser({ id: '123', email: data.email, role: 'agent' });
-    navigate('/forgot-password'); // Based on previous navigation flow for demo
+    if (error) {
+      setErrorMsg(error.message);
+    } else {
+      navigate('/dashboard');
+    }
+  };
+
+  const onSignUp = async (data: LoginFormValues) => {
+    setLoading(true);
+    setErrorMsg(null);
+    const { error } = await supabase.auth.signUp({
+      email: data.email,
+      password: data.password,
+    });
+    setLoading(false);
+    
+    if (error) {
+      setErrorMsg(error.message);
+    } else {
+      alert('Success! Please check your email to verify your account.');
+    }
   };
 
   return (
@@ -45,9 +70,14 @@ const Login = () => {
         <p>Sign in to manage requests, journals and verified documents.</p>
       </div>
       <div className="content">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        {errorMsg && (
+          <div style={{ backgroundColor: 'var(--danger)', color: 'white', padding: '12px', borderRadius: '8px', marginBottom: '16px' }}>
+            {errorMsg}
+          </div>
+        )}
+        <form>
           <div className="field">
-            <label>User name</label>
+            <label>Email address</label>
             <input 
               {...register('email')} 
               type="text" 
@@ -65,8 +95,24 @@ const Login = () => {
             />
             {errors.password && <span style={{ color: 'var(--danger)', fontSize: '12px' }}>{errors.password.message}</span>}
           </div>
-          <button type="submit" className="btn primary" style={{ width: '100%', marginTop: '24px' }}>
-            Sign In
+          <button 
+            type="button" 
+            onClick={handleSubmit(onSignIn)}
+            className="btn primary" 
+            style={{ width: '100%', marginTop: '24px' }}
+            disabled={loading}
+          >
+            {loading ? 'Processing...' : 'Sign In'}
+          </button>
+          
+          <button 
+            type="button" 
+            onClick={handleSubmit(onSignUp)}
+            className="btn outline" 
+            style={{ width: '100%', marginTop: '12px' }}
+            disabled={loading}
+          >
+            Create New Account
           </button>
         </form>
       </div>
